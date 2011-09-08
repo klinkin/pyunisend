@@ -1,8 +1,8 @@
 #PyUniSend
-PyUniSend is a simple API wrapper for interacting with https://www.UniSender.com
+PyUniSend is a simple API wrapper for interacting with [unisender.com](http://www.unisender.com/ru/?a=112233)
 ##Requirements
 Python 2.7 or later.  
-A UniSend.com account and API key. You can see your API keys [here](https://www.unisender.com/ru/user_info).
+A UniSend.com account and API key. You can see your API keys [here](https://www.unisender.com/ru/user_info/?a=112233).
 ##Installation
     pip install pyunisend
 ##Usage

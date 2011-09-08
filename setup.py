@@ -5,7 +5,7 @@ PyUniSend is a simple API wrapper for interacting with http://UniSender.com
 Links
 `````
 
-* `UniSender API documentation <http://www.unisender.com/en/help/api>`_
+* `UniSender API documentation <http://www.unisender.com/en/help/api/?a=112233>`_
 * `PyUniSend source <http://github.com/klinkin/pyunisend>`_
 """
 
