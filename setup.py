@@ -1,5 +1,5 @@
 """
-PyUniSend Python wrapper for API UniSender.com
+PyUniSend is a simple API wrapper for interacting with http://UniSender.com
 -----------
 
 Links
@@ -35,7 +35,7 @@ setup(
     author = pyunisend.__author__,
     author_email = pyunisend.__author_email__,
     license = 'MIT license',
-    description = 'Wrapper API UniSender.com for Python',
+    description = 'API wrapper for interacting with http://UniSender.com',
     long_description = __doc__,
     url = "https://github.com/klinkin/pyunisend",
     packages = find_packages(),
