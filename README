@@ -1,0 +1,14 @@
+PyUniSend Python 2.5 wrapper for UniSender.com API
+
+[ usage ]
+>>> from pyunisend import PyUniSend
+>>> api = PyUniSend('YOUR APIKEY')
+>>> api.getLists()
+{'result': [{'id': list_id, 'title': u'\u0420\u0430\u0441\u0441\u044b\u043b\u043a\u0430 UserName'}]}
+
+[ note ]
+API parameters must be passed by name. For example:
+>>> api.createList(title='NewList')
+
+[ UniSender API documentation ]
+http://www.unisender.com/ru/help/api
