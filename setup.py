@@ -30,19 +30,19 @@ CLASSIFIERS = [
 KEYWORDS = 'unisender api wrapper'
 
 setup(
-    name = 'pyunisend',
-    version = pyunisend.__version__,
-    author = pyunisend.__author__,
-    author_email = pyunisend.__author_email__,
-    license = 'MIT license',
-    description = 'API wrapper for interacting with http://UniSender.com',
-    long_description = __doc__,
-    url = "https://github.com/klinkin/pyunisend",
-    packages = find_packages(),
-    download_url = "http://pypi.python.org/pypi/pyunisend/",
-    classifiers = CLASSIFIERS,
-    keywords = KEYWORDS,
-    platforms = 'any',
-    zip_safe = True,
+    name='pyunisend',
+    version=pyunisend.__version__,
+    author=pyunisend.__author__,
+    author_email=pyunisend.__author_email__,
+    license='MIT license',
+    description='API wrapper for interacting with http://UniSender.com',
+    long_description=__doc__,
+    url='https://github.com/klinkin/pyunisend',
+    packages=find_packages(),
+    download_url='http://pypi.python.org/pypi/pyunisend/',
+    classifiers=CLASSIFIERS,
+    keywords=KEYWORDS,
+    platforms='any',
+    zip_safe=True,
     install_requires=['distribute']
 )
