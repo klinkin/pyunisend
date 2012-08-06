@@ -28,6 +28,8 @@ class PyUniSend(object):
         self.default_params = {'api_key': api_key,
                                'format': format,
                                'test_mode': test_mode}
+        if not test_mode:
+            self.default_params.pop('test_mode')
         self.default_params.update(extra_params)
         if secure:
             self.base_api_url = 'https://www.unisender.com/%s/api/' % self.lang
