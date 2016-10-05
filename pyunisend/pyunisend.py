@@ -10,41 +10,39 @@ except ImportError:
 
 
 class PyUniSend(object):
+
     errorMessage = ''
     errorCode = ''
 
-    def __init__(self, api_key='', lang='ru',
-                 secure=False, format='json',
-                 test_mode=False, extra_params={}):
+    def __init__(self, api_key='', lang='ru', secure=False, format_='json',
+        test_mode=False, extra_params={}):
         """
         Cache API key, lang, secure, format and address.
         """
         self.api_key = api_key
         self.lang = lang
         self.secure = secure
-        self.format = format
+        self.format = format_
         self.test_mode = test_mode
 
-        self.default_params = {'api_key': api_key,
-                               'format': format,
-                               'test_mode': test_mode}
-        if not test_mode:
-            self.default_params.pop('test_mode')
+        self.default_params = {
+            'api_key': api_key,
+            'format': format_,
+        }
+        if test_mode:
+            self.default_params['test_mode'] = test_mode
         self.default_params.update(extra_params)
-        if secure:
-            self.base_api_url = 'https://www.unisender.com/%s/api/' % self.lang
-        else:
-            self.base_api_url = 'http://api.unisender.com/%s/api/' % self.lang
+
+        self.base_api_url = '{scheme}://api.unisender.com/{lang}/api/'.format(
+            scheme=('https' if secure else 'http'), lang=lang)
 
     def call(self, method, params={}):
         url = self.base_api_url + method
         params.update(self.default_params)
-
-        params = urllib.urlencode(self.http_build_query(params),
-                                  doseq=True)
+        params = urllib.urlencode(self.http_build_query(params), doseq=True)
 
         request = urllib2.Request(url, params,
-                                  {'User-Agent': 'PyUniSender 0.1.0'})
+            {'User-Agent': 'PyUniSender 0.1.0'})
         response = urllib2.urlopen(request)
 
         result = json.loads(response.read())
@@ -61,7 +59,7 @@ class PyUniSend(object):
     def __getattr__(self, method_name):
 
         def get(self, *args, **kwargs):
-            params = dict((i, j) for (i, j) in enumerate(args))
+            params = dict(enumerate(args))
             params.update(kwargs)
             return self.call(method_name, params)
 
