@@ -33,8 +33,7 @@ class PyUniSend(object):
             self.default_params['test_mode'] = test_mode
         self.default_params.update(extra_params)
 
-        self.base_api_url = '{scheme}://api.unisender.com/{lang}/api/'.format(
-            scheme=('https' if secure else 'http'), lang=lang)
+        self.base_api_url = 'https://api.unisender.com/{lang}/api/'.format(lang=lang)
 
     def call(self, method, params={}):
         url = self.base_api_url + method
