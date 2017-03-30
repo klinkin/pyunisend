@@ -29,7 +29,7 @@ class PyUniSend:
         url = self.base_api_url + method
         params.update(self.default_params)
         params = urllib.parse.urlencode(self.http_build_query(params)).encode("utf-8")
-        request = urllib.request.Request(url, params, {'User-Agent': 'PyUniSender PY > 3'})
+        request = urllib.request.Request(url, params, {'User-Agent': 'PyUniSender 1.01'})
 
         response = urllib.request.urlopen(request)
         result = json.loads(response.read().decode('utf8'))
