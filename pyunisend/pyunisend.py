@@ -1,21 +1,12 @@
-#!/usr/bin/env python
-# -*- coding:utf8 -*-
-
-import urllib
-import urllib2
-try:
-    import simplejson as json
-except ImportError:
-    import json
+import urllib.request
+import json
 
 
-class PyUniSend(object):
-
+class PyUniSend:
     errorMessage = ''
     errorCode = ''
 
-    def __init__(self, api_key='', lang='ru', secure=False, format_='json',
-        test_mode=False, extra_params={}):
+    def __init__(self, api_key='', lang='ru', secure=False, format_='json', test_mode=False, extra_params={}):
         """
         Cache API key, lang, secure, format and address.
         """
@@ -25,10 +16,8 @@ class PyUniSend(object):
         self.format = format_
         self.test_mode = test_mode
 
-        self.default_params = {
-            'api_key': api_key,
-            'format': format_,
-        }
+        self.default_params = {'api_key': api_key, 'format': format_}
+
         if test_mode:
             self.default_params['test_mode'] = test_mode
         self.default_params.update(extra_params)
@@ -36,20 +25,20 @@ class PyUniSend(object):
         self.base_api_url = 'https://api.unisender.com/{lang}/api/'.format(lang=lang)
 
     def call(self, method, params={}):
+
         url = self.base_api_url + method
         params.update(self.default_params)
-        params = urllib.urlencode(self.http_build_query(params), doseq=True)
+        params = urllib.parse.urlencode(self.http_build_query(params)).encode("utf-8")
+        request = urllib.request.Request(url, params, {'User-Agent': 'PyUniSender PY > 3'})
 
-        request = urllib2.Request(url, params,
-            {'User-Agent': 'PyUniSender 0.1.0'})
-        response = urllib2.urlopen(request)
-
-        result = json.loads(response.read())
+        response = urllib.request.urlopen(request)
+        result = json.loads(response.read().decode('utf8'))
 
         try:
+            result = result['result']
             if 'error' in result:
-                self.errorMessage = result['code']
-                self.errorCode = result['error']
+                self.errorMessage = result['error']
+                self.errorCode = result['code']
         except TypeError:
             pass  # exception for non-iterable (boolean) types
 
