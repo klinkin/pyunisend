@@ -1,10 +1,8 @@
 """
 PyUniSend is a simple API wrapper for interacting with http://UniSender.com
 -----------
-
 Links
 `````
-
 * `UniSender API documentation <http://www.unisender.com/en/help/api/?a=112233>`_
 * `PyUniSend source <http://github.com/klinkin/pyunisend>`_
 """
@@ -20,10 +18,7 @@ CLASSIFIERS = [
     'Natural Language :: English',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
-    'Programming Language :: Python :: 2',
-    'Programming Language :: Python :: 2.5',
-    'Programming Language :: Python :: 2.6',
-    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
     'Topic :: Software Development :: Libraries :: Python Modules'
 ]
 
@@ -44,5 +39,5 @@ setup(
     keywords=KEYWORDS,
     platforms='any',
     zip_safe=True,
-    install_requires=['distribute']
+    install_requires=[]
 )

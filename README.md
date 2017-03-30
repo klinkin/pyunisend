@@ -1,14 +1,19 @@
 #PyUniSend
 PyUniSend is a simple API wrapper for interacting with [unisender.com](http://www.unisender.com/ru/?a=112233)
+
 ##Requirements
-Python 2.7 or later.  
+Python 3 or later.
 A UniSend.com account and API key. You can see your API keys [here](https://www.unisender.com/ru/user_info/?a=112233).
+
 ##Installation
-    pip install pyunisend
+    https://github.com/qari/pyunisend.git
+
 ##Usage
+
     from pyunisend import PyUniSend
     api = PyUniSend('YOUR APIKEY')
     api.getLists()
+    api.sendSms(phone='******', sender='***', text='Test')
 
 ## Notes
 API parameters must be passed by name. For example:  
@@ -17,4 +22,4 @@ API parameters must be passed by name. For example:
 
 ##Copyrights
 
-* Copyright (c) 2011 Klimin Mikhail. Please see LICENSE.txt for details.
+* Copyright (c) 2017 Klimin Mikhail + MG. Please see LICENSE.txt for details.
