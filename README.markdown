@@ -13,7 +13,6 @@ A UniSend.com account and API key. You can see your API keys [here](https://www.
     api = PyUniSend('YOUR APIKEY')
     api.getLists()
 
-    # For SMS
     from pyunisend import PyUniSend
     api = PyUniSend('YOUR APIKEY')
     api.sendSms(phone='******', sender='***', text='Test')
